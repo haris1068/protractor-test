@@ -1,0 +1,32 @@
+project_name: protractor-test
+
+containers:
+  protractor:
+    build_directory: infrastructure
+    volumes:
+      - .:/app:cached
+    run_as_current_user:
+      enabled: true
+      home_directory: /app
+
+tasks:
+  shell:
+    description: Run a shell
+    run:
+      container: protractor
+      command: bash
+
+  test:
+    description: Run UI Automation Tests
+    prerequisites:
+      - npminstall
+    run:
+      container: protractor
+      command: ./testRunner.sh
+
+  npminstall:
+    description: NPM Install dependencies
+    run:
+      container: protractor
+      command: npm install
+

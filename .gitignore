@@ -1,0 +1,17 @@
+#Idea generated files
+.idea/
+.npm/
+.pki/
+.config/
+.cache/
+.local/
+.batect/
+*.iml
+.bash_history
+
+# Testing dependencies
+node_modules/
+
+#Test Reports
+reports/
+
